@@ -37,7 +37,7 @@ export async function rpc<T, K extends object = object>(
   args: unknown[],
   req: RequestBody = {},
   { parent, keys }: RpcInstanceData<K> = { parent: {} as K, keys: [] },
-) {
+): Promise<T> {
   const mbr = readMap(parent, keys);
   const _args = serializeValue(args);
   const request = await fetch(HOST, getBody({ m, fn, args: _args, mbr }, req));
@@ -48,8 +48,6 @@ export async function rpc<T, K extends object = object>(
 
   const serialized = await request.json() as T;
   const deserialized = deserializeValue<T>(serialized);
-
-  
 
   return deserialized;
 }
