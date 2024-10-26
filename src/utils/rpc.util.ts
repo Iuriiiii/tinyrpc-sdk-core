@@ -1,7 +1,7 @@
 import { deserializeValue, serializeValue } from "@online/bigserializer";
 import type { MapStructure, RequestBody } from "../types/mod.ts";
 import { readMap } from "./read-map.util.ts";
-import { writeMap } from "./write-map.util.ts";
+import { HOST as GLOBAL_HOST } from "../singletons/mod.ts";
 
 interface RpcInstanceData<T extends object> {
   parent: T;
@@ -16,7 +16,7 @@ function getHost(value: string, https = false) {
   return "http" + (https ? "s" : "") + "://" + value;
 }
 
-const HOST = getHost("127.0.0.1");
+const HOST = getHost(GLOBAL_HOST.host, GLOBAL_HOST.https);
 const UE = (_: unknown, v: unknown) => v === undefined ? "[UNDFN]" : v;
 const headers = { "content-type": "application/json" } as const;
 const method = "POST" as const;
