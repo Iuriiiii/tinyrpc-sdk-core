@@ -16,7 +16,6 @@ function getHost(value: string, https = false) {
   return "http" + (https ? "s" : "") + "://" + value;
 }
 
-const HOST = getHost(GLOBAL_HOST.host, GLOBAL_HOST.https);
 const UE = (_: unknown, v: unknown) => v === undefined ? "[UNDFN]" : v;
 const headers = { "content-type": "application/json" } as const;
 const method = "POST" as const;
@@ -38,6 +37,7 @@ export async function rpc<T, K extends object = object>(
   req: RequestBody = {},
   { parent, keys }: RpcInstanceData<K> = { parent: {} as K, keys: [] },
 ): Promise<T> {
+  const HOST = getHost(GLOBAL_HOST.host, GLOBAL_HOST.https);
   const mbr = readMap(parent, keys);
   const _args = serializeValue(args);
   const request = await fetch(HOST, getBody({ m, fn, args: _args, mbr }, req));
