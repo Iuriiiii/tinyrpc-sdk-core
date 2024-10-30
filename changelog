@@ -1,0 +1,4 @@
+# 0.0.5
+
+- Better parameters for `rpc` function.
+- Self-patch logic to update local instances with remote information.

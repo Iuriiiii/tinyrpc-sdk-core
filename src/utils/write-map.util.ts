@@ -1,8 +1,8 @@
 export function writeMap(
   target: object,
-  map: object,
+  source: object,
 ) {
-  for (const [key, value] of Object.entries(map)) {
+  for (const [key, value] of Object.entries(source)) {
     // @ts-ignore: index access
     if (value instanceof Object && target[key] instanceof Object) {
       // @ts-ignore: index access

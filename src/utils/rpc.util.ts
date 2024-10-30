@@ -1,12 +1,14 @@
 import { deserializeValue, serializeValue } from "@online/bigserializer";
-import type { MapStructure, RequestBody } from "../types/mod.ts";
+import type { RequestBody } from "../types/mod.ts";
 import { readMap } from "./read-map.util.ts";
 import { HOST as GLOBAL_HOST } from "../singletons/mod.ts";
-
-interface RpcInstanceData<T extends object> {
-  parent: T;
-  keys: MapStructure<T>;
-}
+import type {
+  MethodResponse,
+  RpcParam,
+  RpcServerResponse,
+} from "../interfaces/mod.ts";
+import { writeMap } from "./write-map.util.ts";
+import { HttpError } from "../classes/mod.ts";
 
 function getHost(value: string, https = false) {
   if (value.startsWith("http://") || value.startsWith("https://")) {
@@ -30,24 +32,32 @@ function getBody(value: object, request: RequestBody) {
   } satisfies RequestInit as RequestInit;
 }
 
-export async function rpc<T, K extends object = object>(
-  m: string,
-  fn: string,
-  args: unknown[],
-  req: RequestBody = {},
-  { parent, keys }: RpcInstanceData<K> = { parent: {} as K, keys: [] },
-): Promise<T> {
+/**
+ * @param param Information to perform the request to the RPC server
+ * @returns An object with an `error` member and a `result` member.
+ */
+export async function rpc<T, E extends HttpError, K extends object = object>(
+  param: RpcParam<K>,
+): Promise<MethodResponse<T, E>> {
+  const { communication, request: req } = param;
+  const { m, fn, args, instance: { parent, keys } } = communication;
   const HOST = getHost(GLOBAL_HOST.host, GLOBAL_HOST.https);
   const mbr = readMap(parent, keys);
   const _args = serializeValue(args);
   const request = await fetch(HOST, getBody({ m, fn, args: _args, mbr }, req));
 
   if (!request.ok) {
-    throw new Error(request.statusText);
+    return {
+      result: {} as T,
+      error: new HttpError(request.status, request.statusText) as E,
+    };
   }
 
   const serialized = await request.json() as T;
-  const deserialized = deserializeValue<T>(serialized);
+  const { result, updates } = deserializeValue<RpcServerResponse<T>>(
+    serialized,
+  );
 
-  return deserialized;
+  writeMap(parent, updates);
+  return { result };
 }
