@@ -36,7 +36,7 @@ function getBody(value: object, request: RequestBody) {
  * @param param Information to perform the request to the RPC server
  * @returns An object with an `error` member and a `result` member.
  */
-export async function rpc<T, E extends HttpError, K extends object = object>(
+export async function rpc<T, E extends HttpError = HttpError, K extends object = object>(
   param: RpcParam<K>,
 ): Promise<MethodResponse<T, E>> {
   const { communication, request: req } = param;

@@ -1,3 +1,8 @@
+# 0.0.7
+
+- Export `MethodResponse`.
+- Add docs.
+
 # 0.0.5
 
 - Better parameters for `rpc` function.
