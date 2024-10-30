@@ -1,6 +1,6 @@
 {
   "name": "@online/tinyrpc-sdk-core",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "tasks": {
     "dev": "deno run --watch main.ts"
   },
