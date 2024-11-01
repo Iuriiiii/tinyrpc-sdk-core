@@ -5,12 +5,12 @@ import type { RpcModuleInformation } from "./rpc-module-information.interface.ts
  * The RPC function parameter.
  */
 export interface JsonRpcParam<T extends object> {
-    /**
-     * All information related with server comunication.
-     */
-    communication: RpcModuleInformation<T>;
-    /**
-     * Aditional request information to be used on fetch.
-     */
-    request: RequestBody;
+  /**
+   * All information related with server comunication.
+   */
+  communication: RpcModuleInformation<T>;
+  /**
+   * Aditional request information to be used on fetch.
+   */
+  request: RequestBody;
 }
