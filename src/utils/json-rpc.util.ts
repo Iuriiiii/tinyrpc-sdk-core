@@ -3,20 +3,13 @@ import type { RequestBody } from "../types/mod.ts";
 import { readMap } from "./read-map.util.ts";
 import { HOST as GLOBAL_HOST } from "../singletons/mod.ts";
 import type {
+  JsonRpcParam,
   MethodResponse,
-  RpcParam,
   RpcServerResponse,
 } from "../interfaces/mod.ts";
 import { writeMap } from "./write-map.util.ts";
 import { HttpError } from "../classes/mod.ts";
-
-function getHost(value: string, https = false) {
-  if (value.startsWith("http://") || value.startsWith("https://")) {
-    return value;
-  }
-
-  return "http" + (https ? "s" : "") + "://" + value;
-}
+import { getHost } from "./get-host.util.ts";
 
 const UE = (_: unknown, v: unknown) => v === undefined ? "[UNDFN]" : v;
 const headers = { "content-type": "application/json" } as const;
@@ -36,8 +29,12 @@ function getBody(value: object, request: RequestBody) {
  * @param param Information to perform the request to the RPC server
  * @returns An object with an `error` member and a `result` member.
  */
-export async function rpc<T, E extends HttpError = HttpError, K extends object = object>(
-  param: RpcParam<K>,
+export async function jsonRpc<
+  T,
+  E extends HttpError = HttpError,
+  K extends object = object,
+>(
+  param: JsonRpcParam<K>,
 ): Promise<MethodResponse<T, E>> {
   const { communication, request: req } = param;
   const { m, fn, args, instance: { parent, keys } } = communication;
