@@ -1,4 +1,4 @@
 export interface HostOptions {
-    host: string;
-    https: boolean;
+  host: string;
+  https: boolean;
 }

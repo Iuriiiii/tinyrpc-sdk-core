@@ -1,4 +1,4 @@
 export interface RpcServerResponse<T> {
-    result: T;
-    updates: object;
+  result: T;
+  updates: object;
 }

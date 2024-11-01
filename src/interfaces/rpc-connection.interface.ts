@@ -1,4 +1,4 @@
 export interface RpcConnection {
-    module: string;
-    method: string;
+  module: string;
+  method: string;
 }
