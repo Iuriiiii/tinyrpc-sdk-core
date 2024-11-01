@@ -11,7 +11,7 @@ import { HttpError } from "../classes/mod.ts";
 import { FormdataRpcVersion } from "../enums/mod.ts";
 import { getHost } from "./get-host.util.ts";
 
-const headers = { "content-type": "multipart/form-data" } as const;
+const headers = { "content-type": 'multipart/form-data; boundary="0cfb94056aa06ac4802b9bd8f064fd00a719d2851a52a07e4eb844f68b4861bd"' } as const;
 const method = "POST" as const;
 
 function insertObject(
