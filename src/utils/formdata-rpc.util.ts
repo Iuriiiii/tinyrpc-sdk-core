@@ -11,7 +11,7 @@ import { HttpError } from "../classes/mod.ts";
 import { FormdataRpcVersion } from "../enums/mod.ts";
 import { getHost } from "./get-host.util.ts";
 
-const headers = { "content-type": "application/json" } as const;
+const headers = { "content-type": "multipart/form-data" } as const;
 const method = "POST" as const;
 
 function insertObject(
