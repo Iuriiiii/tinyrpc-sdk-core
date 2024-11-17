@@ -1,4 +1,4 @@
-export interface RpcResponseBody {
+export interface ResponseBody {
   /**
    * The serialized content body (see `ContentBody` interface)
    */

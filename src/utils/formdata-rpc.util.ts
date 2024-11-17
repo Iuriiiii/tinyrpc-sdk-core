@@ -3,7 +3,7 @@ import type {
   ContentResponse,
   FormdataRpcParam,
   MethodResponse,
-  RpcResponseBody,
+  ResponseBody,
   RpcServerResponse,
 } from "../interfaces/mod.ts";
 import { readMap } from "./read-map.util.ts";
@@ -53,7 +53,7 @@ export async function formdataRpc<
     X: serializedContentBody.value,
     S: serializedStringDatabase.value,
     O: serializedObjectDatabase.value,
-  } satisfies RpcResponseBody;
+  } satisfies ResponseBody;
 
   const { value: serializedBody } = serialize(serializableBody, {
     serializers: [uInt8ArraySerializer],

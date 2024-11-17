@@ -1,4 +1,4 @@
-import type { RpcResponseBody } from "./rpc-response-body.interface.ts";
+import type { ResponseBody } from "./response-body.interface.ts";
 
-export interface RpcServerResponse extends RpcResponseBody {
+export interface RpcServerResponse extends ResponseBody {
 }
