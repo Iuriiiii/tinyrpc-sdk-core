@@ -1,4 +1,3 @@
-import type { SerializeOptions } from "@online/tinyserializer/types";
 import type {
   ContentBody,
   ContentResponse,
