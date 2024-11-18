@@ -25,7 +25,7 @@ const method = "POST" as const;
  * @param param Information to perform the request to the RPC server
  * @returns An object with an `error` member and a `result` member.
  */
-export async function formdataRpc<
+export async function rawRpc<
   T,
   E extends HttpError = HttpError,
 >(param: FormdataRpcParam): Promise<MethodResponse<T, E>> {

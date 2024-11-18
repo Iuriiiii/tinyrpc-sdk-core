@@ -1,9 +1,14 @@
+# 0.1.4
+
+Implements raw requests
+Change `BigSerializer` with `TinySerializer`
+
 # 0.0.7
 
-- Export `MethodResponse`.
-- Add docs.
+Export `MethodResponse`
+Add docs.
 
 # 0.0.5
 
-- Better parameters for `rpc` function.
-- Self-patch logic to update local instances with remote information.
+Better parameters for `rpc` function
+Self-patch logic to update local instances with remote information
