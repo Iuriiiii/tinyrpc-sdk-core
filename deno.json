@@ -1,9 +1,7 @@
 {
   "name": "@online/tinyrpc-sdk-core",
-  "version": "0.1.6",
-  "tasks": {
-    "dev": "deno run --watch main.ts"
-  },
+  "version": "0.1.7",
+  "tasks": {},
   "exports": "./mod.ts",
   "imports": {
     "@online/packager": "jsr:@online/packager@^0.0.2",
