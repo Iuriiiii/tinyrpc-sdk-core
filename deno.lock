@@ -2,8 +2,9 @@
   "version": "4",
   "specifiers": {
     "jsr:@online/is@^0.0.1": "0.0.1",
-    "jsr:@online/tinyserializer@^0.0.8": "0.0.8",
-    "jsr:@online/tinyserializers@^0.0.1": "0.0.1",
+    "jsr:@online/packager@^0.0.2": "0.0.2",
+    "jsr:@online/tinyserializer@^0.0.9": "0.0.9",
+    "jsr:@online/tinyserializers@^0.0.2": "0.0.2",
     "jsr:@std/assert@1": "1.0.6",
     "jsr:@std/internal@^1.0.4": "1.0.4"
   },
@@ -11,14 +12,21 @@
     "@online/is@0.0.1": {
       "integrity": "dba4c1e8932c552a5acec0551ccb22e2debfd3bfc91698d82e7b2cee81e6218c"
     },
-    "@online/tinyserializer@0.0.8": {
-      "integrity": "3298bea65d3e346ca8b69bac632f1c70f5244c91c68aebf0209afc506a759224",
+    "@online/packager@0.0.2": {
+      "integrity": "1186f8772a1494db6ffa19b8af1040415acbd6f637bad358898fbf96c1f021b8",
+      "dependencies": [
+        "jsr:@online/tinyserializer",
+        "jsr:@online/tinyserializers"
+      ]
+    },
+    "@online/tinyserializer@0.0.9": {
+      "integrity": "e91ac64dbc6a190dd8d1067cadcf602bea9b76b6e9e2265343c453ef10e74250",
       "dependencies": [
         "jsr:@online/is"
       ]
     },
-    "@online/tinyserializers@0.0.1": {
-      "integrity": "f414da1ed348e76488ffe95509e7d8e3fb9e9c636f1ba57126e5bb067d62425c",
+    "@online/tinyserializers@0.0.2": {
+      "integrity": "25243a024dc71c852af3db1cf9ac3d80218b671a3e29c5dee4da2f4c22d48d05",
       "dependencies": [
         "jsr:@online/tinyserializer"
       ]
@@ -35,8 +43,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@online/tinyserializer@^0.0.8",
-      "jsr:@online/tinyserializers@^0.0.1",
+      "jsr:@online/packager@^0.0.2",
       "jsr:@std/assert@1"
     ]
   }

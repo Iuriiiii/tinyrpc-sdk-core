@@ -7,8 +7,4 @@ export interface ResponseBody {
    * The serialized string database
    */
   S: Uint8Array;
-  /**
-   * The serialized object database
-   */
-  O: Uint8Array;
 }

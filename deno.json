@@ -1,13 +1,12 @@
 {
   "name": "@online/tinyrpc-sdk-core",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "tasks": {
     "dev": "deno run --watch main.ts"
   },
   "exports": "./mod.ts",
   "imports": {
-    "@online/tinyserializer": "jsr:@online/tinyserializer@^0.0.8",
-    "@online/tinyserializers": "jsr:@online/tinyserializers@^0.0.1",
+    "@online/packager": "jsr:@online/packager@^0.0.2",
     "@std/assert": "jsr:@std/assert@1"
   }
 }
