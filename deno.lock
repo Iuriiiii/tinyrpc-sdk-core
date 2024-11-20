@@ -2,7 +2,7 @@
   "version": "4",
   "specifiers": {
     "jsr:@online/is@^0.0.1": "0.0.1",
-    "jsr:@online/packager@^0.0.2": "0.0.2",
+    "jsr:@online/packager@^0.0.5": "0.0.5",
     "jsr:@online/tinyserializer@^0.0.9": "0.0.9",
     "jsr:@online/tinyserializers@^0.0.2": "0.0.2",
     "jsr:@std/assert@1": "1.0.6",
@@ -12,8 +12,8 @@
     "@online/is@0.0.1": {
       "integrity": "dba4c1e8932c552a5acec0551ccb22e2debfd3bfc91698d82e7b2cee81e6218c"
     },
-    "@online/packager@0.0.2": {
-      "integrity": "1186f8772a1494db6ffa19b8af1040415acbd6f637bad358898fbf96c1f021b8",
+    "@online/packager@0.0.5": {
+      "integrity": "64c74b455b80f8f126464f85ab32fb86cffc5af6aa4bad40c8f2cdb679a2e6e5",
       "dependencies": [
         "jsr:@online/tinyserializer",
         "jsr:@online/tinyserializers"
@@ -43,7 +43,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@online/packager@^0.0.2",
+      "jsr:@online/packager@^0.0.5",
       "jsr:@std/assert@1"
     ]
   }

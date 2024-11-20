@@ -1,3 +1,7 @@
+# 0.1.8
+
+Update `@online/packager` and export `SerializableClass` and `SerializedClass`
+
 # 0.1.7
 
 Exports `MethodResponse` interface
