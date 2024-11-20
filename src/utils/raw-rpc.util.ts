@@ -49,9 +49,6 @@ export async function rawRpc<
   }
 
   const serialized = await request.bytes();
-
-  console.log('src/utils/raw-rpc.util.ts:53->76ccf1', serialized);
-
   const { result, updates } = unpack<ContentResponse<T>>(serialized);
 
   writeMap(parent, updates);
