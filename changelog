@@ -1,3 +1,7 @@
+# 0.1.13
+
+Able developers to put their own serializers and deserializers
+
 # 0.1.8
 
 Update `@online/packager` and export `SerializableClass` and `SerializedClass`
