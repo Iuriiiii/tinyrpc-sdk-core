@@ -1,1 +1,1 @@
-export * from "./host.singleton.ts";
+export * from "./sdk.singleton.ts";

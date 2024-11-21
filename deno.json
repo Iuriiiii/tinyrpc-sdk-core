@@ -4,7 +4,8 @@
   "tasks": {},
   "exports": "./mod.ts",
   "imports": {
-    "@online/packager": "jsr:@online/packager@^0.0.9",
+    "@online/packager": "jsr:@online/packager@^0.0.x",
+    "@online/tinyserializers": "jsr:@online/tinyserializers@^0.0.x",
     "@std/assert": "jsr:@std/assert@1"
   }
 }
