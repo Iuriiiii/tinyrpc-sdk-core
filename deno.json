@@ -1,7 +1,6 @@
 {
-  "name": "@online/tinyrpc-sdk-core",
-  "version": "0.1.13",
-  "tasks": {},
+  "name": "@tinyrpc/sdk-core",
+  "version": "0.1.14",
   "exports": "./mod.ts",
   "imports": {
     "@online/packager": "jsr:@online/packager@^0.0.x",
