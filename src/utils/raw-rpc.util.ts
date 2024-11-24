@@ -37,19 +37,20 @@ export async function rawRpc<
     { serializers: SDK_SETTINGS.serializers },
   );
 
-  const request = await fetch(
+  const response = await fetch(
     HOST,
     { ...req, body, method, headers },
   );
 
-  if (!request.ok) {
+  if (!response.ok) {
+    await response.arrayBuffer();
     return {
       result: {} as T,
-      error: new HttpError(request.status, request.statusText) as E,
+      error: new HttpError(response.status, response.statusText) as E,
     };
   }
 
-  const serialized = await request.bytes();
+  const serialized = await response.bytes();
   const { result, updates } = unpack<ContentResponse<T>>(serialized, {
     deserializers: SDK_SETTINGS.deserializers,
   });
