@@ -10,14 +10,17 @@ export interface FormdataRpcParam {
    * Information related with the server function to call.
    */
   connection: RpcConnection;
+
   /**
    * Arguments to send back to server.
    */
   args: object;
+
   /**
    * Information about the current instance.
    */
   updates: RpcInstanceData<object>;
+
   /**
    * Aditional request information to be used on fetch.
    */
