@@ -25,4 +25,9 @@ export interface FormdataRpcParam {
    * Aditional request information to be used on fetch.
    */
   request: RequestBody;
+
+  /**
+   * Constructor arguments.
+   */
+  context: unknown[];
 }
