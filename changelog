@@ -1,3 +1,7 @@
+# 0.1.18
+
+Export new util function `makeItUnwrappable`
+
 # 0.1.16
 
 Allow send constructror arguments to server
