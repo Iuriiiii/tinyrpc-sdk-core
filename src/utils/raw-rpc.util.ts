@@ -16,7 +16,7 @@ const method = "POST" as const;
  */
 export async function rawRpc<T, E extends HttpError = HttpError>(param: FormdataRpcParam): Promise<MethodResponse<T, E>> {
   const host = getHost(SDK_SETTINGS.host, SDK_SETTINGS.https);
-  const { args, updates: { parent, keys }, request, connection, context } = param;
+  const { args, updates: { parent, keys }, request, connection, context, makeVoid } = param;
   const instanceMap = readMap(parent, keys);
   const body = pack(
     {
@@ -41,5 +41,5 @@ export async function rawRpc<T, E extends HttpError = HttpError>(param: Formdata
   const { result, updates } = unpack<ContentResponse<T>>(serialized, { deserializers: SDK_SETTINGS.deserializers });
 
   writeMap(parent, updates);
-  return { result };
+  return { result: makeVoid ? void 0 as T : result };
 }
