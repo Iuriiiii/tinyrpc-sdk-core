@@ -1,6 +1,6 @@
 {
   "name": "@tinyrpc/sdk-core",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "exports": "./mod.ts",
   "imports": {
     "@online/packager": "jsr:@online/packager@^0.0.x",
@@ -9,7 +9,7 @@
   },
   "fmt": {
     "indentWidth": 2,
-    "lineWidth": 200,
+    "lineWidth": 130,
     "semiColons": true
   }
 }
