@@ -30,4 +30,9 @@ export interface FormdataRpcParam {
    * Constructor arguments.
    */
   context: unknown[];
+
+  /**
+   * Delete the result field, for internal purposes.
+   */
+  makeVoid: boolean;
 }
