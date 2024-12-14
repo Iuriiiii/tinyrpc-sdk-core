@@ -1,3 +1,11 @@
+# 0.1.22
+
+Export new util type `InterfaceOf`
+
+# 0.1.21
+
+Export new util type `ClassOrInterface`
+
 # 0.1.18
 
 Export new util function `makeItUnwrappable`

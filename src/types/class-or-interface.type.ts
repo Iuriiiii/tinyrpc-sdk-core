@@ -1,3 +1,3 @@
-import type { PickMembers } from "./pick-members.type.ts";
+import type { InterfaceOf } from "./interface-of.type.ts";
 
-export type ClassOrInterface<T> = T | PickMembers<T>;
+export type ClassOrInterface<T> = T | InterfaceOf<T>;
