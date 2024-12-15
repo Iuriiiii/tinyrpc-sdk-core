@@ -34,5 +34,5 @@ export interface FormdataRpcParam {
   /**
    * Delete the result field, for internal purposes.
    */
-  makeVoid: boolean;
+  voidIt: boolean;
 }
