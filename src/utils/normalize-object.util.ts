@@ -1,17 +1,17 @@
-import { isPlainObject } from "@online/is";
+import { isObject } from "@online/is";
 import type { ClassOrInterface } from "../types/mod.ts";
 
-// deno-lint-ignore no-explicit-any
-export function normalizeObject<T extends { new (...args: any[]): any }>(
+export function normalizeObject<T>(
   clazz: T,
   valueOrValues: ClassOrInterface<T> | ClassOrInterface<T>[],
 ): T | T[] {
   if (Array.isArray(valueOrValues)) {
-    return valueOrValues.flatMap((value) => normalizeObject(clazz, value));
+    return valueOrValues.flatMap(() => normalizeObject(clazz, valueOrValues));
   }
 
-  if (isPlainObject(valueOrValues)) {
-    return Object.assign(new clazz(), valueOrValues);
+  if (isObject(valueOrValues)) {
+    // @ts-ignore: access to `deserialize`
+    return clazz.deserialize(valueOrValues);
   }
 
   return valueOrValues;
