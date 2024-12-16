@@ -9,8 +9,8 @@ export function normalizeObject<T>(
   }
 
   if (isObject(valueOrValues)) {
-    // @ts-ignore: access to `deserialize`
-    return clazz.deserialize(valueOrValues);
+    // @ts-ignore: use constructor
+    return Object.assign(new clazz(), valueOrValues);
   }
 
   return valueOrValues;
