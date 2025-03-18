@@ -2,11 +2,17 @@ import type { HttpError } from "../classes/mod.ts";
 
 export interface MethodResponse<R, E extends HttpError = HttpError> {
   /**
-   * The server response.
+   * The server response
    */
   result: R;
+
   /**
-   * The error, if any, extends `HttpError`;
+   * The error, if any, extends `HttpError`
    */
   error?: E;
+
+  /**
+   * The server response
+   */
+  response: Response;
 }
