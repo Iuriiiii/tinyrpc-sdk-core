@@ -4,9 +4,9 @@ import { SDK as SDK_SETTINGS } from "../singletons/mod.ts";
 import { writeMap } from "./write-map.util.ts";
 import { HttpError } from "../classes/mod.ts";
 import { getHost } from "./get-host.util.ts";
-import { pack, unpack } from "@online/packager";
 import { encodeBase64 } from "@std/encoding";
 import { isStreamRequest, isStreamResponse } from "../validators/mod.ts";
+import { deserialize, serialize } from "@online/miniserializer";
 
 const method = "POST" as const;
 
@@ -58,7 +58,7 @@ export async function rawRpc<T, E extends HttpError = HttpError>(param: Formdata
   const body = isStream
     // @ts-ignore: index access
     ? args[key]
-    : pack(
+    : serialize(
       {
         "&": cleanArguments,
         "%": instanceMap,
@@ -69,7 +69,7 @@ export async function rawRpc<T, E extends HttpError = HttpError>(param: Formdata
   const headers: Record<string, string> = {
     "content-type": isStream ? "application/raw-stream" : "application/raw",
     "x-t-con": `${connection.module}.${connection.method}`,
-    "x-t-arg": encodeBase64(pack(context)),
+    "x-t-arg": encodeBase64(serialize(context)),
   };
 
   if (isStream) {
@@ -88,7 +88,7 @@ export async function rawRpc<T, E extends HttpError = HttpError>(param: Formdata
   }
 
   const serialized = await response.bytes();
-  const { result, updates } = unpack<ContentResponse<T>>(serialized, { deserializers: SDK_SETTINGS.deserializers });
+  const { result, updates } = deserialize<ContentResponse<T>>(serialized, { deserializers: SDK_SETTINGS.deserializers });
 
   writeMap(parent, updates);
   return { result: voidIt ? void 0 as T : result, response };
