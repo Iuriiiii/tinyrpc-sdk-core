@@ -1,4 +1,4 @@
-import type { DeserializeFunction, SerializerFunction } from "@online/packager";
+import type { DeserializeFunction, SerializerFunction } from "@online/miniserializer";
 
 export interface SdkOptions {
   host: string;
